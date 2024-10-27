@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { register as registerUser } from "../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+// import './Register.css'
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ function Register() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex justify-center items-center h-screen">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-lg shadow-lg w-80 transition-transform transform duration-300 hover:scale-105"

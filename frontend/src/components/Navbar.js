@@ -7,11 +7,12 @@ function Navbar({ toggleDarkMode, isDarkMode }) {
   const { isAuth, logout } = useAuth();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-// function for logut which is called when user click on logout buttton
+  
+  // function for logut which is called when user click on logout buttton
   const handleLogout = () => {
     logout();
     navigate("/");
-    setIsOpen(false);// to close navbar or toogle 
+    setIsOpen(false); // to close navbar or toggle
   };
 
   const toggleMenu = () => {
@@ -19,18 +20,17 @@ function Navbar({ toggleDarkMode, isDarkMode }) {
   };
 
   const handleLinkClick = () => {
-    setIsOpen(false); 
+    setIsOpen(false);
   };
 
   return (
-    //   mostly we are doing conditional rendering for differtent media devices and show toggle and close button according to screen size
+    //   mostly we are doing conditional rendering for different media devices and show toggle and close button according to screen size
     <nav
-      className={`bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 backdrop-blur-md p-4 shadow-lg flex justify-between items-center rounded-b-lg transition-all duration-300`}
+      className={`bg-transparent p-4 shadow-lg flex justify-between items-center rounded-b-lg transition-all duration-300`}
     >
       
       <h2 className="text-2xl font-bold text-white">EventSpot Lite</h2>
      
-
       <button
         onClick={toggleDarkMode}
         className="text-white md:hidden focus:outline-none"
@@ -113,24 +113,24 @@ function Navbar({ toggleDarkMode, isDarkMode }) {
         <Link
           to="/"
           onClick={handleLinkClick}
-          className="text-white hover:bg-blue-700 hover:rounded-md transition duration-300 py-2 px-3"
+          className="text-white hover:text-blue-400 hover:bg-gray-700 rounded-md transition duration-300 py-2 px-3"
         >
           Home
         </Link>
         {!isAuth ? ( 
-          // conditional rendering because if user is autenticated the isAuth (from authcontext) is true and we display logout button if false then it means user is not authenticated then we show login and signup buttons
+          // conditional rendering because if user is authenticated, the isAuth (from authcontext) is true, and we display logout button if false, then it means user is not authenticated, so we show login and signup buttons
           <>
             <Link
               to="/login"
               onClick={handleLinkClick}
-              className="text-white hover:bg-blue-700 hover:rounded-md transition duration-300 py-2 px-3"
+              className="text-white hover:text-blue-400 hover:bg-gray-700 rounded-md transition duration-300 py-2 px-3"
             >
               Login
             </Link>
             <Link
               to="/register"
               onClick={handleLinkClick}
-              className="text-white hover:bg-blue-700 hover:rounded-md transition duration-300 py-2 px-3"
+              className="text-white hover:text-blue-400 hover:bg-gray-700 rounded-md transition duration-300 py-2 px-3"
             >
               Register
             </Link>
@@ -138,7 +138,7 @@ function Navbar({ toggleDarkMode, isDarkMode }) {
         ) : (
           <button
             onClick={handleLogout}
-            className="text-white hover:bg-blue-700 hover:rounded-md transition duration-300 py-2 px-3"
+            className="text-white hover:text-blue-400 hover:bg-gray-700 rounded-md transition duration-300 py-2 px-3"
           >
             Logout
           </button>

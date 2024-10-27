@@ -7,9 +7,11 @@ exports.protect = (req, res, next) => {
     
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        // decodeing jwt
         req.userId = decoded.userId;
         next();
     } catch (error) {
         res.status(401).json({ message: 'Token is not valid' });
     }
 };
+// middleare for authenticating user because we have a feature where only login user can create event

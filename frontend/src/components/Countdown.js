@@ -6,9 +6,9 @@ const Countdown = ({ eventDate }) => {
 
   useEffect(() => {
     const countdownInterval = setInterval(() => {
-      const now = new Date().getTime();
-      const eventTime = new Date(eventDate).getTime();
-      const distance = eventTime - now;
+      const now = new Date().getTime(); // getting current date
+      const eventTime = new Date(eventDate).getTime(); //calculting curr time left from subtracting curr date and registered date
+      const distance = eventTime - now; //same as above
 
       if (distance < 0) {
         clearInterval(countdownInterval);

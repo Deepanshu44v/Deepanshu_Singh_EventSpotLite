@@ -1,7 +1,7 @@
 // src/services/api.js
 import axios from "axios";
 
-const API = axios.create({ baseURL: "http://localhost:2000/api" }); // you can adjust this url as required from where you are sending requests
+const API = axios.create({ baseURL: "https://eventspotlite-2.onrender.com/api" }); // you can adjust this url as required from where you are sending requests
 
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem("token"); // sending jwt token from browser on every request 
